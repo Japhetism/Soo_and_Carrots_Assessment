@@ -5,10 +5,14 @@ import SplashScreen  from "./src/screens/splash";
 import AccountCreationScreen from "./src/screens/signup/account_creation";
 import CompetitionScreen from "./src/screens/signup/competition";
 import { navigationRef } from "./src/services/Navigation/NavigationService";
+import config from './config/storybook';
+import StorybookUIRoot from './.storybook';
 
 const Stack = createStackNavigator();
 
-const App = () => {
+const showStorybook = config.SHOW_STORYBOOK;
+
+const AppNavigation = () => {
     return (
         <NavigationContainer ref={navigationRef}>
             <Stack.Navigator 
@@ -20,9 +24,15 @@ const App = () => {
                 <Stack.Screen name="Competition" component={CompetitionScreen} />
             </Stack.Navigator>
       </NavigationContainer>
-    );
+    )
+}
+
+const App = () => {
+    if (showStorybook) {
+        return <StorybookUIRoot />
+    } else {
+        return <AppNavigation />
+    }
 };
 
 export default App;
-
-// export {default} from './.storybook'; 
