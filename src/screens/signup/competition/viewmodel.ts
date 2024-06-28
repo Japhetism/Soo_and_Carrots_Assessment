@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getHost } from "../../../utils/helper";
-import { goBack, navigate } from "../../../services/Navigation/NavigationService";
+import { goBack } from "../../../services/Navigation/NavigationService";
 
 export const viewmodel = () => {
     const [hosts, setHosts] = useState<Array<{
@@ -14,7 +14,6 @@ export const viewmodel = () => {
     const [showModal, setShowModal] = useState<boolean>(false);
 
     const navigateToHost = (id: string) => {
-        console.log("selected hosts ", id);
         setShowModal(true);
     }
 
@@ -23,7 +22,6 @@ export const viewmodel = () => {
     }
 
     const navigateBack = () => {
-        console.log("go back...");
         goBack();
     }
 
