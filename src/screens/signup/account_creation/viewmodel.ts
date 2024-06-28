@@ -31,7 +31,7 @@ export const viewmodel = () => {
     const [formData, setFormData] = useState<formDataProps>(defaultFormData);
     const [formDataError, setFormDataError] = useState<formDataProps>(defaultFormData);
     const [competitions, setCompetitions] = useState<Array<{label: string, value: string}>>([]);
-
+    
     const createAccount = () => {
         if (!validateFormData()) {
             navigate("Competition");
