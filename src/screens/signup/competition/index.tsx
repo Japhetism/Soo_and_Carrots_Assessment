@@ -37,7 +37,7 @@ const CompetitionScreen = () => {
     const {
         navigateBack,
         navigateToHost,
-        hosts,
+        events,
         showModal,
         handleModalClick,
     } = viewmodel();
@@ -91,7 +91,7 @@ const CompetitionScreen = () => {
                     </View>
                     <View style={styles.cardList}>
                         <FlatList
-                            data={hosts}
+                            data={events}
                             keyExtractor={(item) => item.id}
                             renderItem={
                                 ({ item }) => 

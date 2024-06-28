@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { getHost } from "../../../utils/helper";
+import { getCompetitionEvents } from "../../../utils/helper";
 import { goBack } from "../../../services/Navigation/NavigationService";
 
 export const viewmodel = () => {
-    const [hosts, setHosts] = useState<Array<{
+    const [events, setEvents] = useState<Array<{
         id: string;
         title: string;
         startDate: string;
         endDate: string;
         description: string;
+        continent: string;
     }>>([]);
 
     const [showModal, setShowModal] = useState<boolean>(false);
@@ -26,7 +27,7 @@ export const viewmodel = () => {
     }
 
     useEffect(() => {
-        setHosts(getHost());
+        setEvents(getCompetitionEvents());
     }, []);
 
     return {
@@ -34,6 +35,6 @@ export const viewmodel = () => {
         handleModalClick: handleModalClick,
         showModal: showModal,
         navigateBack: navigateBack,
-        hosts: hosts,
+        events: events,
     }
 }
