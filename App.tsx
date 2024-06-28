@@ -1,11 +1,11 @@
 import React from "react";
-import { Text } from "react-native";
+import SplashScreen from "./src/screens/splash";
 
 const App = () => {
     return (
-        <Text>First App</Text>
+        <SplashScreen />
     );
 };
 
-// export default App
-export {default} from './.storybook'; 
+export default App
+// export {default} from './.storybook'; 
