@@ -1,12 +1,12 @@
+import { navigate } from "../../services/Navigation/NavigationService";
+
 export const viewmodel = () => {
     
     const navigateToSignup = () => {
-        console.log("navigate to signup");
+        navigate("Signup");
     }
 
-    const navigateToEmail = () => {
-        console.log("navigate to continue email");
-    }
+    const navigateToEmail = () => {}
 
     return {
         navigateToSignup: navigateToSignup,
