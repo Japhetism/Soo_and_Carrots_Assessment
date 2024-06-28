@@ -114,3 +114,12 @@ export const compareByStartDate = (a: Event, b: Event) => {
     }
     return 0;
 }
+
+export const filterEventsByContinent = (searchTerm: string): Event[] => {
+    const events = getCompetitionEvents();
+    // Convert search term to lowercase for case-insensitive matching
+    const searchTermLower = searchTerm.toLowerCase();
+
+    // Filter events based on continent matching the search term
+    return events.filter(event => event.continent.toLowerCase().includes(searchTermLower));
+}

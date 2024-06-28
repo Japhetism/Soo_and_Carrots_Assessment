@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getCompetitionEvents } from "../../../utils/helper";
+import { getCompetitionEvents, filterEventsByContinent } from "../../../utils/helper";
 import { goBack } from "../../../services/Navigation/NavigationService";
 
 export const viewmodel = () => {
@@ -26,6 +26,16 @@ export const viewmodel = () => {
         goBack();
     }
 
+    const handleEventSearch = (text: string) => {
+        let events;
+        if (text != "") {
+            events = filterEventsByContinent(text);
+        } else {
+            events = getCompetitionEvents();
+        }
+        setEvents(events);
+    }
+
     useEffect(() => {
         setEvents(getCompetitionEvents());
     }, []);
@@ -36,5 +46,6 @@ export const viewmodel = () => {
         showModal: showModal,
         navigateBack: navigateBack,
         events: events,
+        handleEventSearch: handleEventSearch,
     }
 }

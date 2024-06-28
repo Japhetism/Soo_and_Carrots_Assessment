@@ -40,6 +40,7 @@ const CompetitionScreen = () => {
         events,
         showModal,
         handleModalClick,
+        handleEventSearch,
     } = viewmodel();
 
     return (
@@ -67,7 +68,7 @@ const CompetitionScreen = () => {
                     <View style={styles.searchbox}>
                         <Searchbox 
                             placeholder="Search"
-                            onChangeText={(e) => console.log(e)}
+                            onChangeText={(e) => handleEventSearch(e)}
                         />
                     </View>
                 </View>
